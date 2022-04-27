@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pocgui
+spec:
+  selector:
+    matchLabels:
+      app: pocgui
+  template:
+    metadata:
+      labels:
+        app: pocgui
+    spec:
+      containers:
+      - name: pocgui
+        image: fabricioveronez/web-page:blue
+        ports: 
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: pocgui
+spec:
+  selector: 
+    app: pocgui
+  ports:
+  - port: 80
+    targetPort: 80
