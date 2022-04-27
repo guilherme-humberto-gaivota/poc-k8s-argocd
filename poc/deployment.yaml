@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: pocgui
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: pocgui
